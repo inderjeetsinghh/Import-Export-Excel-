@@ -1,0 +1,20 @@
+<style>
+  .excel-upload { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; }
+
+    .excel-upload label { display: block; font-size:50px; font-weight: bold; margin-bottom: 10px; cursor: pointer; }
+
+   
+
+    .excel-upload .upload-button { padding: 40px 80px; background-color: #4CAF50; color: white; border: none; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease; }
+
+      .excel-upload .upload-button:hover { background-color: #45a049; }
+
+      .excel-upload .upload-button:active { background-color: #3e9144; }
+
+</style>
+
+
+<div class="excel-upload">
+  <label for="fileUpload">Upload Excel File:</label>
+  <input class="upload-button" type="file" id="fileUpload" (change)="onFileChange($event)" accept=".xlsx, .xls">
+</div>

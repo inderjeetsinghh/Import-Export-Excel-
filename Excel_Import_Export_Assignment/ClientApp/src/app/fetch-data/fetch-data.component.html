@@ -1,0 +1,55 @@
+
+<button class="export-button"  (click)="exportData()">Click to export data</button>
+
+
+<br />
+<br />
+<h2>Contract details with laborCategory sub rows</h2>
+<br />
+<table class="contracts-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Contract Name</th>
+      <th>Client Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let contract of contracts?.contractBasicInfos">
+      <tr class="contract-row">
+        <td>{{ contract.id }}</td>
+        <td>{{ contract.contractName }}</td>
+        <td>{{ contract.clientName }}</td>
+        <td>{{ contract.startDate }}</td>
+        <td>{{ contract.endDate }}</td>
+      </tr>
+      <tr class="sub-row" *ngFor="let category of contract.laborCategories">
+        <td>Labor Category</td>
+        <td>{{ category.categoryName }}</td>
+        <td>{{ category.ratePerHour }}</td>
+        <td>{{ category.contractId }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+
+<style>
+  .contracts-table { border-collapse: collapse; width: 100%; }
+
+    .contracts-table th,
+    .contracts-table td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+
+  .contract-row { background-color: #f2f2f2;font-weight:bolder }
+
+  .sub-row { background-color: lightgoldenrodyellow; }
+
+  .export-button { padding: 20px 50px; background-color: #5e64c3; border-radius:50px; color: white; border: none; cursor: pointer; font-size: 32px; transition: background-color 0.3s ease; }
+
+    .export-button:hover { background-color: #45a049; }
+
+    .export-button:active { background-color: #3e9144; }
+
+</style>
